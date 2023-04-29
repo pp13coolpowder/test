@@ -1,118 +1,47 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+function page() {
+  const router = useRouter()
+  const go = (e) => {
+    e.preventDefault()
+    router.push('/pages_charger/p1')
+  }
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className='m-4'><svg width="20" height="38" viewBox="0 0 20 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.7532 -5.45005e-08C19.0695 -4.06748e-08 19.3932 0.125047 19.6359 0.367784C20.1214 0.853259 20.1214 1.64767 19.6359 2.13315L3.0194 18.7496L19.3932 35.1234C19.8786 35.6089 19.8786 36.4033 19.3932 36.8888C18.9077 37.3742 18.1133 37.3742 17.6278 36.8888L0.364001 19.6323C-0.121472 19.1468 -0.121472 18.3524 0.364001 17.867L17.8632 0.367784C18.1133 0.117691 18.4296 -6.8646e-08 18.7532 -5.45005e-08Z" fill="#0041A4" />
+    </svg>
+      <div className=' h-screen flex items-center justify-center'>
+        <form onSubmit={go} className=' '>
+          <div className=''>เข้าสู่ระบบ</div>
+          <div>อีเมลหรือชื่อผู้ใช้งาน</div>
+          <input className='border border-slate-500' placeholder="ระบุอีเมลหรือชื่อผู้ใช้งาน"></input>
+          <div className=''>รหัสผ่าน</div>
+          <input className='border border-slate-500' placeholder="ระบุรหัสผ่าน"></input>
+          <br></br>
+          <Link href='' className='text-blue-700'> ลืมรหัสผ่าน?</Link>
+          <br></br>
+          <button type='submit' className='bg-blue-700'>เข้าสู่ระบบ</button>
+          <div>หรือ</div>
+          <button className='flex border border-slate-500'>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z" fill="#3C5A99" />
+              <path d="M10.7772 14.9999V10.4452H12.3123L12.5428 8.66202H10.7772V7.52725C10.7772 7.01163 10.9197 6.66202 11.658 6.66202H12.5936V5.07217C12.4315 5.05069 11.8729 5.00186 11.2225 5.00186C9.86505 5.00186 8.93536 5.82999 8.93536 7.35147V8.66397H7.40607V10.4472H8.93536V14.9999H10.7772Z" fill="white" />
+            </svg>
+            ดำเนินการต่อด้วย Facebook
+          </button>
+
+          <button className=' flex border border-slate-500'>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.1473 7.6875V10.8616C12.1473 10.942 12.0848 11.0045 12.0045 11.0045H11.4955C11.4464 11.0045 11.4018 10.9777 11.3795 10.9464L9.92411 8.98214V10.8661C9.92411 10.9464 9.86161 11.0089 9.78125 11.0089H9.27232C9.19197 11.0089 9.12947 10.9464 9.12947 10.8661V7.69197C9.12947 7.61161 9.19197 7.54911 9.27232 7.54911H9.77679C9.82143 7.54911 9.87054 7.57143 9.89286 7.61161L11.3482 9.57589V7.69197C11.3482 7.61161 11.4107 7.54911 11.4911 7.54911H12C12.0804 7.54465 12.1473 7.61161 12.1473 7.6875ZM8.48661 7.54464H7.97768C7.89732 7.54464 7.83482 7.60714 7.83482 7.6875V10.8616C7.83482 10.942 7.89732 11.0045 7.97768 11.0045H8.48661C8.56697 11.0045 8.62947 10.942 8.62947 10.8616V7.6875C8.62947 7.61161 8.56697 7.54464 8.48661 7.54464ZM7.25893 10.2054H5.87054V7.6875C5.87054 7.60714 5.80804 7.54464 5.72768 7.54464H5.21875C5.1384 7.54464 5.0759 7.60714 5.0759 7.6875V10.8616C5.0759 10.9018 5.08929 10.933 5.11608 10.9598C5.14286 10.9821 5.17411 11 5.21429 11H7.25447C7.33482 11 7.39732 10.9375 7.39732 10.8571V10.3482C7.39732 10.2723 7.33482 10.2054 7.25893 10.2054ZM14.8259 7.54464H12.7857C12.7098 7.54464 12.6429 7.60714 12.6429 7.6875V10.8616C12.6429 10.9375 12.7054 11.0045 12.7857 11.0045H14.8259C14.9062 11.0045 14.9687 10.942 14.9687 10.8616V10.3527C14.9687 10.2723 14.9062 10.2098 14.8259 10.2098H13.4375V9.67411H14.8259C14.9062 9.67411 14.9687 9.61161 14.9687 9.53125V9.01786C14.9687 8.9375 14.9062 8.875 14.8259 8.875H13.4375V8.33929H14.8259C14.9062 8.33929 14.9687 8.27679 14.9687 8.19643V7.6875C14.9643 7.61161 14.9018 7.54464 14.8259 7.54464ZM20 3.64733V16.3839C19.9955 18.3839 18.3571 20.0045 16.3527 20H3.61608C1.61608 19.9955 -0.00445508 18.3527 9.20161e-06 16.3527V3.61608C0.00447348 1.61608 1.64733 -0.00445508 3.64733 9.20161e-06H16.3839C18.3839 0.00447348 20.0045 1.64286 20 3.64733ZM17.25 9.12054C17.25 5.86161 13.9821 3.20983 9.96875 3.20983C5.95536 3.20983 2.68751 5.86161 2.68751 9.12054C2.68751 12.0402 5.27679 14.4866 8.77679 14.9509C9.62947 15.1339 9.53125 15.4464 9.33929 16.5937C9.30804 16.7768 9.19197 17.3125 9.96875 16.9866C10.7455 16.6607 14.1607 14.5179 15.692 12.7589C16.7455 11.5982 17.25 10.4241 17.25 9.12054Z" fill="#3F7D20" />
+            </svg>
+            ดำเนินการต่อด้วย Line
+          </button>
+          <Link href='' className='text-blue-700'>พบปัญหาในการเข้าสู่ระบบใช่ไหม</Link>
+        </form>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }
+
+export default page
